@@ -32,11 +32,9 @@ sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/in
 ```
 //This update method only works on Windows 10, 8.1, or 7 (SP1, with PowerShell 3.0), on x86-64.
 
-//Powershell installation instructions can be found here. 
-
 iex "& { $(irm 'https://raw.githubusercontent.com/onflow/flow-cli/master/install.ps1') }"
 ```
-
+Powershell installation instructions can be found [here](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell?view=powershell-7#finding-powershell-in-windows-10-81-80-and-7). 
 
 ### Step 2) Generate a [public key](https://developers.flow.com/tooling/flow-cli/keys/generate-keys)
 
