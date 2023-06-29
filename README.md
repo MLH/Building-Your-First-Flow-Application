@@ -1,4 +1,4 @@
-<h1>Building Your First Flow Application</h1>
+<h1>Getting Started with Flow</h1>
 
 
 <h2>Account Signup</h2>
