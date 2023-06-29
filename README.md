@@ -17,7 +17,8 @@ Those who want to participate in the Flow prize category have the option of usin
 ```
 brew install flow-cli
 
-//Alternatively for Mac & Linux users, if you want to download from a pre-built binary, use the command below. Note: this will only work on x86-64. 
+//Alternatively for Mac & Linux users, if you want to download from a pre-built binary, use the command below.
+//Note: this will only work on x86-64. 
 
 sh -ci "$(curl -fsSL https://raw.githubusercontent.com/onflow/flow-cli/master/install.sh)"
 
@@ -98,6 +99,7 @@ Let’s get started by inputting the following commands in a new terminal window
 
 ```
 npx create-next-app@latest flow-app
+
 cd flow-app
 
 npm install @onflow/fcl --save
