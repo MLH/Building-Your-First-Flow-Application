@@ -59,11 +59,7 @@ flow keys generate
 Verify that you’re human and proceed with creating an account. 
 
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
+<img src="Images/flow_image1.png" height="50%">
 
 
 
@@ -76,6 +72,10 @@ Verify that you’re human and proceed with creating an account.
 
 * Confirm your funds by viewing your account using the _View Account_ link pictured to the right. You should now have 1,000 Flow Token that courtesy of the Flow Testnet Faucet.  Please bear in mind that these tokens are not actual currency, but can be used to build out proof of concepts on the Flow Testnet. 
 
+<img src="Images/flow_image3.png" height="50%">
+<img src="Images/flow_image2.png" height="50%">
+
+
 <h2>Your First Application on Flow</h2>
 
 
@@ -83,8 +83,11 @@ In this tutorial, we are going to interact with an existing smart contract on Fl
 
 In order to do this, the Flow Client Library (FCL) concepts we'll cover are:
 
-
-[TOC]
+* [Installation & Configuration](#installation-&-configuration)
+* [Authentincation](#authentication)
+* [Querying the Blockchain](#querying-the-blockchain)
+* [Initializing an Account](#initializing-an-account)
+* [Mutating the Blockchain](#mutating-the-blockchain)
 
 
 <h3 id="installation-&-configuration">Installation & Configuration</h3>
@@ -101,7 +104,7 @@ npm install @onflow/fcl --save
 
 npm run dev  // the page that populates on localhost:3000 should look something like the image below. 
 ```
-
+<img src="Images/flow_image4.png" height="50%">
 
 Let’s create a new folder in our application called flow. Within this folder, we’ll have a config.js file. 
 
@@ -126,9 +129,9 @@ config({
 })
 ```
 
-_The **accessNode.api** key specifies the address of a Flow access node. _
+*The **accessNode.api** key specifies the address of a Flow access node.*
 
-**_discovery.wallet is an address that points to a service that lists FCL compatible wallets. _**
+*The **discovery.wallet** is an address that points to a service that lists FCL compatible wallets.*
 
 <h3 id="authentication">Authentication</h3>
 
@@ -198,11 +201,17 @@ export default function Home() {
 
 Localhost:3000 should now display the text 'Flow App' with login and signup buttons like the picture to the right. 
 
+<img src="Images/flow_image5.png" height="50%">
+
+
 Now we can sign up and log in users to our application using the Flow Client Library on testnet. 
 
-When you attempt to sign up, you’ll be prompted with several different wallet options. Since we are on testnet, we can generate accounts in a low-stakes environment very easily.  \
- \
-For the purposes of this demo, I chose the Blotco option and input an email address I have access to for verification purposes. Feel free to do the same! _The Blotco option includes subsidized transactions so you won’t need to use any of your testnet Flow Token to run this sample application. _
+When you attempt to sign up, you’ll be prompted with several different wallet options. Since we are on testnet, we can generate accounts in a low-stakes environment very easily.  
+
+<img src="Images/flow_image6.png" height="50%">
+
+
+For the purposes of this demo, I chose the Blotco option and input an email address I have access to for verification purposes. Feel free to do the same! *The Blotco option includes subsidized transactions so you won’t need to use any of your testnet Flow Token to run this sample application.*
 
 Once you’ve signed up and authenticated, you’ll be given an address for your app-generated Flow account. Your address will display on the application page and you should now see a ‘log out’ button, since the _loggedIn_ state of the application now shows as _true_.  
 
@@ -230,7 +239,11 @@ In this case, our friends at Flow have already set up an account address that ha
 
 If you head to **flow-view-source.com** and plug in the account address: **0xba1132bc08f82fe2**, you should be able to view the sample profile we’ll be using moving forward. 
 
+<img src="Images/flow_image7.png" height="50%">
+
 Go ahead and click into ‘Profile’ beneath the ‘Contracts’ tab. There you’ll find all of the profile contracts associated with this address including getName, getAvatar, getInfo, and so on. 
+
+<img src="Images/flow_image8.png" height="50%">
 
 In order for our application to reference the contracts in this sample profile, let’s jump back into the config.js file we made during the configuration step and add a line of code referencing the account address I provided above (don’t forget the comma after the second line of code). 
 
@@ -319,13 +332,15 @@ export default function Home() {
 ```
 
 
-Your application should resemble the image to the right. You may notice that when you attempt to use the Send Query button, you either receive an error message or the Profile Name field simply continues to read ‘No Profile.’  \
- \
+Your application should resemble the image to the right. You may notice that when you attempt to use the Send Query button, you either receive an error message or the Profile Name field simply continues to read ‘No Profile.’  
+
+<img src="Images/flow_image9.png" height="50%">
+ 
 The reason for this is simple. While the code is syntactically correct, we have yet to initialize our testnet profile on the blockchain, meaning we are unable to store the 0xProfile data within our current user profile address. 
 
-_“For the Profile contract to store a Profile in a user's account, it does so by initializing what is called a "resource." A resource is an ownable piece of data and functionality that can live in the user's account storage. This paradigm is known as "resource-oriented-programming", a principle that is core to Cadence and differentiates its ownership model from other smart contract languages, [read more here](https://developers.flow.com/cadence/intro#intuiting-ownership-with-resources). Cadence makes it so that resources can only exist in one place at any time, they must be deliberately created, cannot be copied, and if desired, must be deliberately destroyed.”  _
+*“For the Profile contract to store a Profile in a user's account, it does so by initializing what is called a "resource." A resource is an ownable piece of data and functionality that can live in the user's account storage. This paradigm is known as "resource-oriented-programming", a principle that is core to Cadence and differentiates its ownership model from other smart contract languages, [read more here](https://developers.flow.com/cadence/intro#intuiting-ownership-with-resources). Cadence makes it so that resources can only exist in one place at any time, they must be deliberately created, cannot be copied, and if desired, must be deliberately destroyed.”*
 
-_Since one of the primary use cases for Flow is the representation and transfer of scarce digital assets (such as digital art for example), disabling the ability to duplicate and/or misrepresent the original state of a resource makes Flow’s smart contracts very safe to use. _
+*Since one of the primary use cases for Flow is the representation and transfer of scarce digital assets (such as digital art for example), disabling the ability to duplicate and/or misrepresent the original state of a resource makes Flow’s smart contracts very safe to use.*
 
 Since we are transferring a profile resource to our account in order to display it on our application, we need to ensure that our user address or account has a profile to transfer that resource over to. From there, we’ll be able to change or mutate the resource as we see fit.  
 
@@ -430,14 +445,13 @@ console.log(transaction)
 }
 ```
 
-
 When you refresh your application browser, you should see an Init Account button. When you hit it, you’ll be prompted with a Confirm Transaction window that contains a script which should be identical to your _initAccount_ transaction script. 
 
 This script is essentially checking for a profile and if there is no profile, a new profile is created. From there, we will move and save the profile into the user account. The last line of the script then allows the profile data to be queried. 
 
 Once the _initAccount_ script runs, that should allow us to query the existing name of the 0xProfile account.  Now, when you hit the send query button, the profile name should update to ‘Anon’ which is the default name within the profile contract.  \
  \
-Mutating the Blockchain
+<h3 id="mutating-the-blockchain"> Mutating the Blockchain </h3>
 
 Now that our _initAccount_ script is running, let’s set up some functionality that allows us to update or mutate the profile name resource again. We’ll be setting a new name and subscribing to the resource in order to read it to the application interface. In this case, we are updating the profile name to read “MLH.”  \
  \
@@ -566,6 +580,8 @@ export default function Home() {
 
 
 Now you should be able to hit the Execute Transaction button. You will once again be prompted with a pop-up window that runs the executeTransaction script we have added to our code. 
+
+<img src="Images/flow_image10.png" height="50%">
 
 Once you see your transaction status reach 4 (or sealed), you can hit the Send Query button and your new Profile Name will display! 
 
