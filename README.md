@@ -449,8 +449,8 @@ When you refresh your application browser, you should see an Init Account button
 
 This script is essentially checking for a profile and if there is no profile, a new profile is created. From there, we will move and save the profile into the user account. The last line of the script then allows the profile data to be queried. 
 
-Once the _initAccount_ script runs, that should allow us to query the existing name of the 0xProfile account.  Now, when you hit the send query button, the profile name should update to ‘Anon’ which is the default name within the profile contract.  \
- \
+Once the _initAccount_ script runs, that should allow us to query the existing name of the 0xProfile account.  Now, when you hit the send query button, the profile name should update to ‘Anon’ which is the default name within the profile contract. 
+
 <h3 id="mutating-the-blockchain"> Mutating the Blockchain </h3>
 
 Now that our _initAccount_ script is running, let’s set up some functionality that allows us to update or mutate the profile name resource again. We’ll be setting a new name and subscribing to the resource in order to read it to the application interface. In this case, we are updating the profile name to read “MLH.”  \
