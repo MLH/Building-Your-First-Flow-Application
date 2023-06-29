@@ -117,7 +117,7 @@ cd flow && touch config.js
 Your config.js file will contain configuration information for FCL, such as what Access Node and wallet discovery endpoint to use (e.g. testnet or a local emulator). Add the following code to the file:
 
 
-```
+```js
 import { config } from "@onflow/fcl";
 
 config({
@@ -125,7 +125,6 @@ config({
   "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn" 
 })
 ```
-
 
 _The **accessNode.api** key specifies the address of a Flow access node. _
 
@@ -141,7 +140,7 @@ Now that the config.js file is set up and we have the framework necessary to sta
 Head over to **flow-app/app/page.js** and replace the existing code with what we have below:  
 
 
-```
+```js
 "use client"; // This is a client component
 import Head from 'next/head';
 import "../flow/config";
@@ -210,7 +209,7 @@ Once you’ve signed up and authenticated, you’ll be given an address for your
 We can quickly check what the user object looks like by console logging the currentUser variable our application is subscribing to. Let’s go ahead and make a quick edit to the _useEffect_ function using the following code. 
 
 
-```
+```js
   useEffect(() => fcl.currentUser.subscribe((userData) => {
     setUser(userData)
     console.log(userData)
@@ -236,7 +235,7 @@ Go ahead and click into ‘Profile’ beneath the ‘Contracts’ tab. There you
 In order for our application to reference the contracts in this sample profile, let’s jump back into the config.js file we made during the configuration step and add a line of code referencing the account address I provided above (don’t forget the comma after the second line of code). 
 
 
-```
+```js
 config({
   "accessNode.api": "https://rest-testnet.onflow.org", 
   "discovery.wallet": "https://fcl-discovery.onflow.org/testnet/authn",         
@@ -252,7 +251,7 @@ Let’s go back to the page.js file and add some new functionality. As a heads u
 Go ahead and copy the code below into your page.js file. You’ll see the new lines of code labeled highlighted and commented as // NEW. 
 
 
-```
+```js
 'use client'; // This is a client component
 import Head from 'next/head'
 import '../flow/config';
@@ -340,7 +339,7 @@ That's where we jump back into FCL code. Instead of query, we use mutate for tra
 Update your code in page.js to include the _initAccount_ function as well as the Init Account button. 
 
 
-```
+```js
 export default function Home() {
 
   const [user, setUser] = useState({loggedIn: null})
@@ -447,7 +446,7 @@ In order to do this, we’ll be adding an _executeTransaction_ function as well 
 Let’s go ahead and update our existing code with the following 
 
 
-```
+```js
 export default function Home() {
 
   const [user, setUser] = useState({loggedIn: null})
