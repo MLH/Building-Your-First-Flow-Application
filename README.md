@@ -102,7 +102,9 @@ cd flow-app
 
 npm install @onflow/fcl --save
 
-npm run dev  // the page that populates on localhost:3000 should look something like the image below. 
+npm run dev
+
+// the page that populates on localhost:3000 should look something like the image below. 
 ```
 <img src="Images/flow_image4.png" height="50%">
 
@@ -261,7 +263,7 @@ Now we can start grabbing some of that sample profile data and displaying it on 
 
 Let’s go back to the page.js file and add some new functionality. As a heads up, we’ll be adding a new _name_ and _setName_ variables to display the sample profile’s name. In addition to that, we’ll be creating a _sendQuery_ function that fires when we click the Send Query button. 
 
-Go ahead and copy the code below into your page.js file. You’ll see the new lines of code labeled highlighted and commented as // NEW. 
+Go ahead and copy the code below into your page.js file. You’ll see the new lines of code commented as // NEW or {/* NEW */}. 
 
 
 ```js
