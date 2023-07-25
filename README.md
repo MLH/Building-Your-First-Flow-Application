@@ -601,7 +601,7 @@ Feel free to update the executeTransaction function to update the resource with 
 <h2>Recap</h2>
 
 
-Great job! In addition to a new testnet account with $1000 of testnet Flow Token,you now have a fully functional Flow application that can auth, query, init accounts, and mutate the chain. You can take what you’ve learned about Flow’s smart contract transactions and apply them to your own hackathon project ideas. 
+Great job! In addition to a new testnet account with $1000 of testnet Flow Token, you now have a fully functional Flow application that can auth, query, init accounts, and mutate the chain. You can take what you’ve learned about Flow’s smart contract transactions and apply them to your own hackathon project ideas. 
 
 Below you will find links to the resources I referenced for this tutorial. Please note that the documentation above is an updated version of the source material. 
 
