@@ -1,5 +1,14 @@
 <h1>Getting Started with Flow</h1>
 
+<h2>Overview</h2>
+
+Here's what we'll accomplish in the next 15 minutes:
+
+* Set up your first testnet account on Flow
+* Learn the basics of Flow transactions
+* Build your first application using Flow
+
+Let's dive in! 
 
 <h2>Account Signup</h2>
 
